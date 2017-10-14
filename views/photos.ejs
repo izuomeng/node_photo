@@ -12,14 +12,13 @@
     <p>Express stock photo application.</p>
     <div id="photos">
         <% photos.forEach((v) => { %>
-            <div class="photo" style="background-image: url(<%= v.path %>);
-                                     background-size:cover;
-                                     background-clip:content-box;
-                                     background-repeat:no-repeat;
-                                     background-origin:content-box;">
-                
+            <div class="photo" style="background-image: url(<%= v.path %>);">
+            <a href="photos/download/<%= v.id %>" class="jump"></a>
             </div>
         <% }) %>
     </div>
+    <a href="upload">
+        <button>Upload</button>
+    </a>
 </body>
 </html>

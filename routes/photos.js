@@ -28,6 +28,15 @@ router.get('/photos', function(req, res, next) {
 		});
 	});
 });
+router.get('/photos/download/:id', function(req, res, next) {
+	var id = req.params.id;
+	Photo.findById(id, function(err, photo) {
+		if (err) {
+			return next(err);
+		}
+		res.download(join(__dirname, `../public/${photo.path}`));
+	});
+});
 router.get('/upload', function(req, res) {
 	res.render('photos/upload', {
 		title: 'Photo upload'
