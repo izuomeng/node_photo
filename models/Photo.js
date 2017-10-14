@@ -1,9 +1,11 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/photo_app');
+mongoose.connect('mongodb://localhost/photo_app', {
+    useMongoClient: true
+});
 
-var scheme = new mongoose.scheme({
+var schema = new mongoose.Schema({
     name: String,
     path: String
 });
 
-module.exports = mongoose.model('Photo', scheme);
+module.exports = mongoose.model('Photo', schema);
