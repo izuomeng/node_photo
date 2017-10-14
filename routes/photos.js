@@ -17,10 +17,15 @@ for (var i = 1; i < 5; i++) {
 		path: `http://120.24.43.150/img/${i}.jpg`
 	});
 }
-router.get('/photos', function(req, res) {
-	res.render('photos', {
-		title: 'Photos',
-		photos
+router.get('/photos', function(req, res, next) {
+	Photo.find({}, function(err, photos) {
+		if (err) {
+			return next(err);
+		}
+		res.render('photos', {
+			title: 'Photos',
+			photos,
+		});
 	});
 });
 router.get('/upload', function(req, res) {
@@ -39,12 +44,12 @@ router.post('/upload', upload.single('photo_image'), function(req, res, next) {
 		}
 		Photo.create({
 			name,
-			path
+			path: 'images/' + img.originalname
 		}, function(err) {
 			if (err) {
 				return next(err);
 			}
-			res.redirect('/');
+			res.redirect('/photos');
 		});
 	});
 });

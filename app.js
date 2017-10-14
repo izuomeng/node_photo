@@ -26,10 +26,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/', photos);
-app.post('/tp', function(req, res) {
-	console.log(req.body, req.files);
-	res.end();
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
