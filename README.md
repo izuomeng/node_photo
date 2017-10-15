@@ -8,3 +8,5 @@ cd /Users/zuomeng/MongoDB/bin
 ./mongo
 ```
 #### 效果图
+![image](http://github.com/izuomeng/img/raw/master/node_photo/photo.png)
+![image](http://github.com/izuomeng/img/raw/master/node_photo/upload.png)
