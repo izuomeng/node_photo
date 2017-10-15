@@ -7,3 +7,4 @@ cd /Users/zuomeng/MongoDB/bin
 ./mongod --dbpath /Users/zuomeng/MongoData 
 ./mongo
 ```
+#### 效果图
