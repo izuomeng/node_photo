@@ -43,7 +43,6 @@ router.get('/upload', function(req, res) {
 	});
 });
 router.post('/upload', upload.single('photo_image'), function(req, res, next) {
-	console.log(req.body, req.file);
 	var img = req.file,
 		name = req.body.photo_name || img.originalname,
 		path = join(__dirname, `../public/images/${img.originalname}`);
